@@ -1,0 +1,16 @@
+{
+  "name": "thafner/lucid",
+  "require": {
+    "acquia/blt": "^13.7"
+  },
+  "autoload":{
+    "psr-4":{
+      "Lucid\\":"blt/src"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "acquia/blt": true
+    }
+  }
+}
