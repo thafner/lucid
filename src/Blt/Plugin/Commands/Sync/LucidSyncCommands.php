@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucid\Blt\Plugin\Commands\Sync;
+namespace Thafner\Lucid\Blt\Plugin\Commands\Sync;
 
 use Acquia\Blt\Robo\BltTasks;
 use Acquia\Blt\Robo\Exceptions\BltException;

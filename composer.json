@@ -6,7 +6,7 @@
   },
   "autoload":{
     "psr-4":{
-      "Lucid\\":"blt/src"
+      "Thafner\\Lucid\\":"./src/"
     }
   },
   "config": {
