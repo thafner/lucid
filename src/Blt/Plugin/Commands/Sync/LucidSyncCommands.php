@@ -32,7 +32,7 @@ class LucidSyncCommands extends BltTasks {
     $s3 = new S3Client([
       'accessKeyId' => 'AKIAVX334C5M2B2YQ54P',
       'accessKeySecret' => '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',
-      'region' => 'eu-central-1',
+      'region' => 'us-east-2',
     ]);
 
     $downloadFileName = 'cclerkdevDrupal9.sql.gz';
