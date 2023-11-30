@@ -4,7 +4,7 @@ namespace Thafner\Lucid\Blt\Plugin\Commands\Sync;
 
 use Acquia\Blt\Robo\BltTasks;
 use Acquia\Blt\Robo\Exceptions\BltException;
-//use AsyncAws\S3\S3Client;
+use AsyncAws\S3\S3Client;
 use Robo\Exception\TaskException;
 use Robo\Result;
 use Symfony\Component\Console\Style\SymfonyStyle;
@@ -29,15 +29,37 @@ class LucidSyncCommands extends BltTasks {
   public function syncDb(InputInterface $input, OutputInterface $output) {
     $io = new SymfonyStyle($input, $output);
     $io->title('Syncing database from S3 bucket.');
-    //
-    //    $awsConfigDirPath = getenv('HOME') . '/.aws';
-    //    $awsConfigFilePath = "$awsConfigDirPath/credentials";
-    //    if (!is_dir($awsConfigDirPath) || !file_exists($awsConfigFilePath)) {
-    //      $result = $this->configureAwsCredentials($awsConfigDirPath, $awsConfigFilePath);
-    //      if ($result->wasCancelled()) {
-    //        return Result::cancelled();
-    //      }
-    //    }
+    $s3 = new S3Client([
+      'accessKeyId' => 'AKIAVX334C5M2B2YQ54P',
+      'accessKeySecret' => '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',
+      'region' => 'eu-central-1',
+    ]);
+
+    $downloadFileName = 'cclerkdevDrupal9.sql.gz';
+
+    if (file_exists($downloadFileName)) {
+      $this->say("Skipping download. Latest database dump file exists >>> $downloadFileName");
+    } else {
+      $result = $s3->getObject([
+        'Bucket' => 'tugboat-db-backups',
+        'Key' => 'ccc/cclerkdevDrupal9.sql.gz'
+      ]);
+      stream_copy_to_stream(
+        from: $result->getBody()->getContentAsResource(),
+        to: fopen($downloadFileName, 'wb'),
+                );
+      $this->say("Database dump file downloaded >>> $downloadFileName");
+    }
+    return $downloadFileName;
+
+//    $awsConfigDirPath = getenv('HOME') . '/.aws';
+//    $awsConfigFilePath = "$awsConfigDirPath/credentials";
+//    if (!is_dir($awsConfigDirPath) || !file_exists($awsConfigFilePath)) {
+//      $result = $this->configureAwsCredentials($awsConfigDirPath, $awsConfigFilePath);
+//      if ($result->wasCancelled()) {
+//        return Result::cancelled();
+//      }
+//    }
 
     //    $s3 = new S3Client([
     //      'region' => $this->s3RegionForSite($siteName),
@@ -58,20 +80,7 @@ class LucidSyncCommands extends BltTasks {
     //    $dbFilename = $latestDatabaseDump->getKey();
     //    $downloadFileName = $this->sanitizeFileNameForWindows($dbFilename);
     //
-    //    if (file_exists($downloadFileName)) {
-    //      $this->say("Skipping download. Latest database dump file exists >>> $downloadFileName");
-    //    } else {
-    //      $result = $s3->getObject([
-    //        'Bucket' => $this->s3BucketForSite($siteName),
-    //        'Key' => $dbFilename,
-    //      ]);
-    //      stream_copy_to_stream(
-    //        from: $result->getBody()->getContentAsResource(),
-    //        to: fopen($downloadFileName, 'wb'),
-    //            );
-    //      $this->say("Database dump file downloaded >>> $downloadFileName");
-    //    }
-    //    return $downloadFileName;
+
   }
 
 
@@ -203,6 +212,39 @@ class LucidSyncCommands extends BltTasks {
       $this->say("  * <comment>" . $sync_map[$multisite]['remote'] . "</comment> => <comment>" . $sync_map[$multisite]['local'] . "</comment>");
     }
     $this->say("To modify the set of aliases for syncing, set the values for drush.aliases.local and drush.aliases.remote in docroot/sites/[site]/blt.yml");
+  }
+
+  /**
+   * Configure AWS credentials.
+   *
+   * @param string $awsConfigDirPath
+   *   Path to the AWS configuration directory.
+   * @param string $awsConfigFilePath
+   *   Path to the AWS configuration file.
+   */
+  protected function configureAwsCredentials(string $awsConfigDirPath, string $awsConfigFilePath, InputInterface $input, OutputInterface $output): Result
+  {
+    $io = new SymfonyStyle($input, $output);
+    $yes = $io->confirm('AWS S3 credentials not detected. Do you wish to configure them?');
+    if (!$yes) {
+      return Result::cancelled();
+    }
+
+    if (!is_dir($awsConfigDirPath)) {
+      $this->_mkdir($awsConfigDirPath);
+    }
+
+    if (!file_exists($awsConfigFilePath)) {
+      $this->_touch($awsConfigFilePath);
+    }
+
+    $awsKeyId = $this->ask("AWS Access Key ID:");
+    $awsSecretKey = $this->askHidden("AWS Secret Access Key:");
+    return $this->taskWriteToFile($awsConfigFilePath)
+      ->line('[default]')
+      ->line("aws_access_key_id = $awsKeyId")
+      ->line("aws_secret_access_key = $awsSecretKey")
+      ->run();
   }
 
 }
