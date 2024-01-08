@@ -36,6 +36,7 @@ class LucidSyncCommands extends BltTasks {
 
     $database_file = $this->databaseDownload($name, $bucket, $key, $input, $output);
 
+    $io->section("Importing database into Drupal database.");
     $task = $this->taskDrush()
       ->drush('sql-drop')
       ->drush('sql:query --file=' . getenv('LANDO_MOUNT') . '/' . $database_file);
@@ -43,7 +44,10 @@ class LucidSyncCommands extends BltTasks {
     $exit_code = $result->getExitCode();
 
     if ($exit_code) {
-      throw new BltException("Unable to import setup.dump-file.");
+      throw new BltException("Unable to import database dump into Drupal database.");
+    }
+    else {
+      $io->success("Drupal database updated.");
     }
   }
 
@@ -128,9 +132,4 @@ class LucidSyncCommands extends BltTasks {
 
     return $result;
   }
-
-
-
-
-
 }

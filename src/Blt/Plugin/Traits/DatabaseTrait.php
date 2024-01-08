@@ -55,7 +55,7 @@ trait DatabaseTrait {
       }
       $fp = fopen(getenv('LANDO_MOUNT'). '/' . $downloadFileName, 'wb');
       stream_copy_to_stream($result->getBody()->getContentAsResource(), $fp);
-      $io->text("Database successfully downloaded.");
+      $io->success("Database successfully downloaded.");
     }
     return $downloadFileName;
   }
