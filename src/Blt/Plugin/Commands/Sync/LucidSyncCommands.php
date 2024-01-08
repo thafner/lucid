@@ -31,7 +31,7 @@ class LucidSyncCommands extends BltTasks {
     $key = $this->getConfigValue('lucid.database.s3_key_prefix_string');
 
     $io = new SymfonyStyle($input, $output);
-    $io->title('Syncing database from S3 bucket for ' . $name . '.');
+    $io->title("Syncing database.");
 
     $this->databaseDownload($name, $bucket, $key, $input, $output);
 

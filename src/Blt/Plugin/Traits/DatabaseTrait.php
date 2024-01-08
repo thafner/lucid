@@ -15,7 +15,7 @@ trait DatabaseTrait {
   public function databaseDownload(string $site_name, string $bucket, string $key, InputInterface $input, OutputInterface $output): string|Result
   {
     $io = new SymfonyStyle($input, $output);
-    $io->title('Syncing database');
+    $io->section('Syncing database');
     $awsConfigDirPath = getenv('HOME') . '/.aws';
     $awsConfigFilePath = "$awsConfigDirPath/credentials";
     if (!is_dir($awsConfigDirPath) || !file_exists($awsConfigFilePath))
@@ -40,7 +40,7 @@ trait DatabaseTrait {
         $downloadFileName,
       ]);
     } else {
-      $io->progressStart(10);
+      $io->progressStart(100);
 
       try {
         $result = $s3->getObject([
@@ -55,10 +55,11 @@ trait DatabaseTrait {
           $e->getMessage(),
         ]);
       }
-      $io->progressAdvance(2);
+      $io->progressAdvance(20);
       $fp = fopen('/app/' . $downloadFileName, 'wb');
-      $io->progressAdvance(5);
+      $io->progressAdvance(50);
       stream_copy_to_stream($result->getBody()->getContentAsResource(), $fp);
+      $io->progressAdvance(95);
       $io->progressFinish();
       $io->text("Database successfully downloaded.");
     }
