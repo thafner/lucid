@@ -36,7 +36,7 @@ class LucidBaseCommands extends BltTasks {
     $this->invokeCommands([
       'lucid:base:composer:install',
       'lucid:sync:db',
-      'drupal:update',
+      'lucid:drupal:update',
       'lucid:theme:frontend'
     ]);
   }

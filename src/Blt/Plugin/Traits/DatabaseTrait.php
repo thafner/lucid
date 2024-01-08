@@ -9,6 +9,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Robo\Result;
+use Robo\ResultData;
 
 trait DatabaseTrait {
 
@@ -68,7 +69,7 @@ trait DatabaseTrait {
    * @param string $awsConfigFilePath
    *   Path to the AWS configuration file.
    */
-  protected function configureAwsCredentials(string $awsConfigDirPath, string $awsConfigFilePath, InputInterface $input, OutputInterface $output): Result
+  protected function configureAwsCredentials(string $awsConfigDirPath, string $awsConfigFilePath, InputInterface $input, OutputInterface $output): Result|ResultData
   {
     $io = new SymfonyStyle($input, $output);
     $yes = $io->confirm('AWS S3 credentials not detected. Do you wish to configure them?');
