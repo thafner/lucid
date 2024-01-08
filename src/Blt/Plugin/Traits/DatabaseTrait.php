@@ -47,7 +47,6 @@ trait DatabaseTrait {
           'Bucket' => $bucket,
           'Key' => $key,
         ]);
-        $io->progressStart();
       } catch (Exception $e) {
         $io->error([
           "There was an error downloading the database.",
