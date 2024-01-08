@@ -3,6 +3,7 @@
 namespace Thafner\Lucid\Blt\Plugin\Commands\Sync;
 
 use Acquia\Blt\Robo\BltTasks;
+use Acquia\Blt\Robo\Exceptions\BltException;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -33,10 +34,17 @@ class LucidSyncCommands extends BltTasks {
     $io = new SymfonyStyle($input, $output);
     $io->title("Syncing database.");
 
-    $this->databaseDownload($name, $bucket, $key, $input, $output);
+    $database_file = $this->databaseDownload($name, $bucket, $key, $input, $output);
 
+    $task = $this->taskDrush()
+      ->drush('sql-drop')
+      ->drush('sql:query --file=' . getenv('LANDO_MOUNT') . '/' . $database_file);
+    $result = $task->run();
+    $exit_code = $result->getExitCode();
 
-
+    if ($exit_code) {
+      throw new BltException("Unable to import setup.dump-file.");
+    }
   }
 
 

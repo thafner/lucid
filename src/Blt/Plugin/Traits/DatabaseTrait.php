@@ -40,8 +40,6 @@ trait DatabaseTrait {
         $downloadFileName,
       ]);
     } else {
-      $io->progressStart(100);
-
       try {
         $result = $s3->getObject([
           'Bucket' => $bucket,
@@ -53,13 +51,10 @@ trait DatabaseTrait {
           $e->getCode(),
           $e->getMessage(),
         ]);
+        return 0;
       }
-      $io->progressAdvance(20);
-      $fp = fopen('/app/' . $downloadFileName, 'wb');
-      $io->progressAdvance(50);
+      $fp = fopen(getenv('LANDO_MOUNT'). '/' . $downloadFileName, 'wb');
       stream_copy_to_stream($result->getBody()->getContentAsResource(), $fp);
-      $io->progressAdvance(95);
-      $io->progressFinish();
       $io->text("Database successfully downloaded.");
     }
     return $downloadFileName;
