@@ -21,8 +21,8 @@ trait DatabaseTrait {
     $awsConfigFilePath = "$awsConfigDirPath/credentials";
     if (!is_dir($awsConfigDirPath) || !file_exists($awsConfigFilePath))
     {
-      $result = $this->configureAwsCredentials($awsConfigDirPath, $awsConfigFilePath, $input, $output);
-      if ($result->wasCancelled())
+      $creds_result = $this->configureAwsCredentials($awsConfigDirPath, $awsConfigFilePath, $input, $output);
+      if ($creds_result->wasCancelled())
       {
         return Result::cancelled();
       }
