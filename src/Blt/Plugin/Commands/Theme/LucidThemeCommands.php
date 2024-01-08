@@ -13,8 +13,7 @@ class LucidThemeCommands extends BltTasks {
   /**
    * Runs all frontend targets.
    *
-   * @hook replace-command source:build:frontend
-   * @aliases lucid:theme:frontend
+   * @command lucid:theme:frontend
    */
   public function frontend() {
     $this->invokeCommands([
@@ -26,8 +25,7 @@ class LucidThemeCommands extends BltTasks {
   /**
    * Executes source:build:frontend-assets target hook.
    *
-   * @hook replace-command source:build:frontend-assets
-   * @aliases lucid:theme:frontend-assets
+   * @command lucid:theme:frontend-assets
    */
   public function assets() {
     return $this->invokeHook('frontend-assets');
@@ -36,8 +34,7 @@ class LucidThemeCommands extends BltTasks {
   /**
    * Executes source:build:frontend-reqs target hook.
    *
-   * @hook replace-command source:build:frontend-reqs
-   * @aliases lucid:theme:frontend-reqs
+   * @command lucid:theme:frontend-reqs
    */
   public function reqs() {
     return $this->invokeHook('frontend-reqs');

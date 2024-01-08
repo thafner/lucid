@@ -33,7 +33,7 @@ class LucidDrupalCommands extends BltTasks {
   /**
    * Update current database to reflect the state of the Drupal file system.
    *
-   * @hook replace-command drupal:update
+   * command lucid:drupal:update
    *
    * @throws \Robo\Exception\TaskException
    * @throws \Acquia\Blt\Robo\Exceptions\BltException
