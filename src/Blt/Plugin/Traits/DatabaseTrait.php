@@ -13,7 +13,7 @@ use Robo\ResultData;
 
 trait DatabaseTrait {
 
-  public function databaseDownload(string $site_name, string $bucket, string $key, InputInterface $input, OutputInterface $output): string|Result
+  public function databaseDownload(string $site_name, string $bucket, string $key, InputInterface $input, OutputInterface $output): string|Result|ResultData
   {
     $io = new SymfonyStyle($input, $output);
     $io->section('Syncing database');
