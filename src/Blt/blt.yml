@@ -125,10 +125,9 @@ sync:
     - js
   commands:
     - source:build:composer
-    - blt:init:settings
-    - drupal:sync:db
+    - lucid:sync:db
     - drupal:update
-    - source:build:frontend
+    - lucid:theme:frontend
 
 # Custom tasks that are triggered at pre-defined times in the build process.
 # The tasks hook into BLT's existing commands.

@@ -23,4 +23,18 @@ class LucidBaseCommands extends BltTasks {
       ->run();
   }
 
+  public function refresh(array $options = [
+    'sync-public-files' => FALSE,
+    'sync-private-files' => FALSE,
+  ]): void {
+    $commands = $this->getConfigValue('sync.commands');
+    if ($options['sync-public-files'] || $this->getConfigValue('sync.public-files')) {
+      $commands[] = 'lucid:sync:public-files';
+    }
+    if ($options['sync-private-files'] || $this->getConfigValue('sync.private-files')) {
+      $commands[] = 'lucid:sync:private-files';
+    }
+    $this->invokeCommands($commands);
+  }
+
 }
