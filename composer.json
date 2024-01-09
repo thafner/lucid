@@ -8,7 +8,8 @@
   "autoload":{
     "psr-4":{
       "Thafner\\Lucid\\":"./src/"
-    }
+    },
+    "classmap":["src/Blt/Plugin/EnvironmentDetector/TugboatDetector.php"]
   },
   "config": {
     "allow-plugins": {
