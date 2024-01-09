@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a354ee2e5cd0992789c3e8db7cd0af6e",
+    "content-hash": "bc045f9db6567e1fda3818107bbc3734",
     "packages": [
         {
             "name": "acquia/blt",
@@ -96,51 +96,6 @@
                 "source": "https://github.com/acquia/blt/tree/13.7.4"
             },
             "time": "2023-11-16T18:40:51+00:00"
-        },
-        {
-            "name": "acquia/blt-tugboat",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/acquia/blt-tugboat.git",
-                "reference": "858a232f38903c3ffaa18b0230af255b9ea99a6d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/acquia/blt-tugboat/zipball/858a232f38903c3ffaa18b0230af255b9ea99a6d",
-                "reference": "858a232f38903c3ffaa18b0230af255b9ea99a6d",
-                "shasum": ""
-            },
-            "conflict": {
-                "acquia/blt": "<13.5.1"
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Acquia\\BltTugboat\\": "./src/"
-                },
-                "classmap": [
-                    "src/Blt/Plugin/EnvironmentDetector/TugboatDetector.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Acquia Engineering",
-                    "homepage": "https://www.acquia.com",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "Tugboat integration for Acquia BLT",
-            "support": {
-                "issues": "https://github.com/acquia/blt-tugboat/issues",
-                "source": "https://github.com/acquia/blt-tugboat/tree/master"
-            },
-            "time": "2022-08-31T14:39:54+00:00"
         },
         {
             "name": "acquia/drupal-environment-detector",
@@ -7412,9 +7367,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "acquia/blt-tugboat": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
