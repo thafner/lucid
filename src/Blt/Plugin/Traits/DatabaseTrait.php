@@ -33,12 +33,11 @@ trait DatabaseTrait {
     ]);
 
     $downloadFileName = 'cclerkdevDrupal9.sql.gz';
+    $downloadFileLocation = dirname(DRUPAL_ROOT) . '/cclerkdevDrupal9.sql.gz';
 
-    if (file_exists($downloadFileName)) {
-      $io->text([
-        "Skipping download.",
-        "Latest database dump file exists.",
-        $downloadFileName,
+    if (file_exists($downloadFileLocation)) {
+      $io->note([
+        "Skipping download. Latest database dump file exists."
       ]);
     } else {
       try {
@@ -54,7 +53,7 @@ trait DatabaseTrait {
         ]);
         return 0;
       }
-      $fp = fopen(getenv('LANDO_MOUNT'). '/' . $downloadFileName, 'wb');
+      $fp = fopen($downloadFileLocation, 'wb');
       stream_copy_to_stream($result->getBody()->getContentAsResource(), $fp);
       $io->success("Database successfully downloaded.");
     }
