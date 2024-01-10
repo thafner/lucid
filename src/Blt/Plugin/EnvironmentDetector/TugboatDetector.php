@@ -17,6 +17,7 @@ class TugboatDetector extends EnvironmentDetector {
    * {@inheritdoc}
    */
   public static function getCiSettingsFile(): string {
-    return sprintf("%s/vendor/thafner/lucid/settings/tugboat.settings.php", dirname(DRUPAL_ROOT));
+    $TUGBOAT_ROOT = getenv('TUGBOAT_ROOT');
+    return sprintf("%s/vendor/thafner/lucid/settings/tugboat.settings.php", dirname($TUGBOAT_ROOT));
   }
 }

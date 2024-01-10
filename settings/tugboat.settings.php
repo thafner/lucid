@@ -4,7 +4,7 @@
  * @file
  * Tugboat settings.
  */
-echo("RETURN2");
+
 $databases = [
   'default' => [
     'default' => [

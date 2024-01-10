@@ -23,7 +23,7 @@ cm:
     dirs:
       # Corresponding value is defined in config.settings.php.
       sync:
-        path: ${cm.core.path}/default
+        path: ${cm.core.path}/sync
     # Install site directly from existing config.
     # This cannot be used if your install profile implements hook_install.
     install_from_config: false
