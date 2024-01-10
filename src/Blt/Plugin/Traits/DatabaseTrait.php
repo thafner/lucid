@@ -41,6 +41,13 @@ trait DatabaseTrait {
       $io->note([
         "Skipping download. Latest database dump file exists."
       ]);
+
+      if (file_exists($downloadFileLocation)) {
+        return $downloadFileLocation;
+      }
+      elseif (file_exists($downloadFileLocationOpened)) {
+        return $downloadFileLocationOpened;
+      }
     } else {
       try {
         $result = $s3->getObject([
@@ -59,6 +66,7 @@ trait DatabaseTrait {
       stream_copy_to_stream($result->getBody()->getContentAsResource(), $fp);
       $io->success("Database successfully downloaded.");
     }
+
     return $downloadFileLocation;
   }
 
