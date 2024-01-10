@@ -34,8 +34,10 @@ trait DatabaseTrait {
 
     $downloadFileName = 'cclerkdevDrupal9.sql.gz';
     $downloadFileLocation = dirname(DRUPAL_ROOT) . '/cclerkdevDrupal9.sql.gz';
+    // When drush operates against a gzipped file the file is unzipped.
+    $downloadFileLocationOpened = dirname(DRUPAL_ROOT) . '/cclerkdevDrupal9.sql';
 
-    if (file_exists($downloadFileLocation)) {
+    if (file_exists($downloadFileLocation) || file_exists($downloadFileLocationOpened)) {
       $io->note([
         "Skipping download. Latest database dump file exists."
       ]);
