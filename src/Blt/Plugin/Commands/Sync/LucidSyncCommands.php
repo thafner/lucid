@@ -39,7 +39,7 @@ class LucidSyncCommands extends BltTasks {
     $io->section("Importing database into Drupal database.");
     $task = $this->taskDrush()
       ->drush('sql-drop')
-      ->drush('sql:query --file=' . getenv('LANDO_MOUNT') . '/' . $database_file);
+      ->drush('sql:query --file=' . $database_file);
     $result = $task->run();
     $exit_code = $result->getExitCode();
 

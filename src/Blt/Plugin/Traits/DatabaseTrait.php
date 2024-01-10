@@ -57,7 +57,7 @@ trait DatabaseTrait {
       stream_copy_to_stream($result->getBody()->getContentAsResource(), $fp);
       $io->success("Database successfully downloaded.");
     }
-    return $downloadFileName;
+    return $downloadFileLocation;
   }
 
   /**
