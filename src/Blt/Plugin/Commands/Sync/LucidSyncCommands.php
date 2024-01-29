@@ -29,12 +29,13 @@ class LucidSyncCommands extends BltTasks {
   public function syncDb(InputInterface $input, OutputInterface $output) {
     $name = $this->getConfigValue('project.machine_name');
     $bucket = $this->getConfigValue('lucid.database.s3_bucket');
-    $key = $this->getConfigValue('lucid.database.s3_key_prefix_string');
+    $directory = $this->getConfigValue('lucid.database.s3_directory');
+    $file = $this->getConfigValue('lucid.database.s3_filename');
 
     $io = new SymfonyStyle($input, $output);
     $io->title("Syncing database.");
 
-    $database_file = $this->databaseDownload($name, $bucket, $key, $input, $output);
+    $database_file = $this->databaseDownload($name, $bucket, $directory, $file, $input, $output);
 
     $io->section("Importing database into Drupal database.");
     $task = $this->taskDrush()

@@ -13,7 +13,7 @@ use Robo\ResultData;
 
 trait DatabaseTrait {
 
-  public function databaseDownload(string $site_name, string $bucket, string $key, InputInterface $input, OutputInterface $output): string|Result|ResultData
+  public function databaseDownload(string $site_name, string $bucket, string $directory, string $file, InputInterface $input, OutputInterface $output): string|Result|ResultData
   {
     $io = new SymfonyStyle($input, $output);
     $io->section('Syncing database');
@@ -32,10 +32,9 @@ trait DatabaseTrait {
       'region' => 'us-east-2',
     ]);
 
-    $downloadFileName = 'cclerkdevDrupal9.sql.gz';
-    $downloadFileLocation = dirname(DRUPAL_ROOT) . '/cclerkdevDrupal9.sql.gz';
+    $downloadFileLocation = dirname(DRUPAL_ROOT) . '/' . $file;
     // When drush operates against a gzipped file the file is unzipped.
-    $downloadFileLocationOpened = dirname(DRUPAL_ROOT) . '/cclerkdevDrupal9.sql';
+    $downloadFileLocationOpened = dirname(DRUPAL_ROOT) . '/' . rtrim($file, '.gz');
 
     if (file_exists($downloadFileLocation) || file_exists($downloadFileLocationOpened)) {
       $io->note([
@@ -52,7 +51,7 @@ trait DatabaseTrait {
       try {
         $result = $s3->getObject([
           'Bucket' => $bucket,
-          'Key' => $key,
+          'Key' => $directory . $file,
         ]);
       } catch (Exception $e) {
         $io->error([

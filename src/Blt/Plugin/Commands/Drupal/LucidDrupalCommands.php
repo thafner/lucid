@@ -15,7 +15,7 @@ use Symfony\Component\Yaml\Yaml;
  */
 class LucidDrupalCommands extends BltTasks {
   /**
-   * Imports configuration from the config directory according to cm.strategy.
+   * Imports configuration from the config directory.
    *
    * @command lucid:drupal:config:import
    * @aliases lucid:config:import
@@ -56,7 +56,7 @@ class LucidDrupalCommands extends BltTasks {
   }
 
   /**
-   * Sync .
+   * Sync remote database and update configuration.
    *
    * @command lucid:drupal:refresh
    * @aliases lucid:refresh ldr lr
