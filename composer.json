@@ -1,0 +1,25 @@
+{
+  "name": "thafner/lucid",
+  "require": {
+    "acquia/blt": "^13.7",
+    "async-aws/s3": "^2.0",
+    "aws/aws-sdk-php": "^3.295"
+  },
+  "autoload":{
+    "psr-4":{
+      "Thafner\\Lucid\\":"./src/"
+    },
+    "classmap":["src/Blt/Plugin/EnvironmentDetector/TugboatDetector.php"]
+  },
+  "config": {
+    "allow-plugins": {
+      "acquia/blt": true,
+      "phpstan/extension-installer": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
+  "require-dev": {
+    "chromatic/usher": "^4.0"
+  },
+  "minimum-stability": "dev"
+}
