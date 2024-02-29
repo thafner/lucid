@@ -51,7 +51,7 @@ trait DatabaseTrait {
       try {
         $result = $s3->getObject([
           'Bucket' => $bucket,
-          'Key' => $directory . $file,
+          'Key' => "{$directory}/{$file}",
         ]);
       } catch (Exception $e) {
         $io->error([
