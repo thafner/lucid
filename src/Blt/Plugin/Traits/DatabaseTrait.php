@@ -42,7 +42,7 @@ trait DatabaseTrait {
       ]);
 
       if (file_exists($downloadFileLocation)) {
-        return $downloadFileLocation;x
+        return $downloadFileLocation;
       }
       elseif (file_exists($downloadFileLocationOpened)) {
         return $downloadFileLocationOpened;
