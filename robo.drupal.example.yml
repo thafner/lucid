@@ -1,0 +1,39 @@
+---
+custom_code_paths:
+  - 'RoboFile.php'
+  - 'robo/src'
+  - 'web/modules/custom'
+  - 'web/themes/custom'
+  - 'web/sites/*/themes'
+drupal_status_report_ignore_checks:
+  - update_core
+phpcs_check_extensions:
+  - php
+  - module
+  - inc
+  - install
+  - test
+  - profile
+  - theme
+  - css
+  - scss
+  - info
+  - txt
+phpcs_ignore_paths:
+  - '*/themes/*/css/'
+  - '*/themes/*/js/'
+  - '*/themes/*/node_modules'
+  - '*/themes/*/libraries/'
+phpcs_standards:
+  - Drupal
+  - DrupalPractice
+php_current_version: '8.1'
+php_version_config_paths:
+  - .ddev/config.yaml
+  - composer.json
+  - .tugboat/config.yml
+  - .platform.app.yaml
+  - .github/workflows/ci.yml
+  - README.md
+  - .lando.yml
+twig_lint_enable: true

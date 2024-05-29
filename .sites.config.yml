@@ -1,0 +1,8 @@
+---
+default:
+    webroot: 'web'
+    location: 'aws' # aws|acquia|platform|pantheon
+  theme_build:
+    - theme_path: 'web/themes/custom/'
+      theme_build_commands:
+        - gulp build
