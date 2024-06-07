@@ -27,7 +27,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Lucid\\": "src"
+            "Thafner\\Lucid\\": "./src/"
         }
     },
     "scripts": {
