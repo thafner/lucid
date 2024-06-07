@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucid\Robo\Plugin\Traits;
+namespace Thafner\Lucid\Robo\Plugin\Traits;
 
 use AsyncAws\S3\S3Client;
 use Robo\Exception\TaskException;

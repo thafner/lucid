@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9e89833bc7ceffc07d99c5d596212fd9",
+    "content-hash": "7f0d20240833844688f5f128663a8cdd",
     "packages": [
         {
             "name": "async-aws/core",
@@ -133,54 +133,6 @@
                 }
             ],
             "time": "2024-05-14T07:34:42+00:00"
-        },
-        {
-            "name": "boedah/robo-drush",
-            "version": "2.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/boedah/robo-drush.git",
-                "reference": "7b3de5dba6e8c2c34603c9d883d0325d95280883"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/boedah/robo-drush/zipball/7b3de5dba6e8c2c34603c9d883d0325d95280883",
-                "reference": "7b3de5dba6e8c2c34603c9d883d0325d95280883",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "conflict": {
-                "codegyre/robo": "<0.5.0"
-            },
-            "require-dev": {
-                "codegyre/robo": "dev-master",
-                "drush/drush": "~6.5",
-                "phpunit/phpunit": "~4.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Boedah\\Robo\\Task\\Drush\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Peter Gasser",
-                    "email": "dev@boedah.de"
-                }
-            ],
-            "description": "Drush CommandStack for Robo Task Runner",
-            "support": {
-                "issues": "https://github.com/boedah/robo-drush/issues",
-                "source": "https://github.com/boedah/robo-drush/tree/master"
-            },
-            "time": "2015-02-21T00:32:39+00:00"
         },
         {
             "name": "chi-teck/drupal-code-generator",

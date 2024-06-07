@@ -1,6 +1,6 @@
 <?php
 
-namespace Lucid\Robo\Plugin\Commands;
+namespace Thafner\Lucid\Robo\Plugin\Commands;
 
 use Robo\Symfony\ConsoleIO;
 use Robo\Task\CommandStack;
