@@ -1,6 +1,6 @@
 <?php
 
-namespace Usher\Robo\Plugin\Enums;
+namespace Lucid\Robo\Plugin\Enums;
 
 enum LocalDevEnvironmentTypes: string
 {

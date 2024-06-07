@@ -1,6 +1,6 @@
 <?php
 
-namespace Usher\Robo\Plugin\Traits;
+namespace Lucid\Robo\Plugin\Traits;
 
 use Robo\Exception\TaskException;
 use Symfony\Component\Yaml\Yaml;

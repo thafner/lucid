@@ -1,12 +1,12 @@
 <?php
 
-namespace Usher\Robo\Plugin\Commands;
+namespace Lucid\Robo\Plugin\Commands;
 
 use DrupalFinder\DrupalFinder;
 use Robo\Exception\TaskException;
 use Robo\Result;
 use Robo\Tasks;
-use Usher\Robo\Plugin\Traits\GitHubStatusTrait;
+use Lucid\Robo\Plugin\Traits\GitHubStatusTrait;
 
 /**
  * Robo commands related to validating Drupal configuration state.

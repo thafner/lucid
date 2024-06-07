@@ -1,12 +1,12 @@
 <?php
 
-namespace Usher\Robo\Plugin\Commands;
+namespace Lucid\Robo\Plugin\Commands;
 
 use Robo\Exception\TaskException;
 use Robo\Result;
 use Robo\Robo;
 use Robo\Tasks;
-use Usher\Robo\Plugin\Traits\RoboConfigTrait;
+use Lucid\Robo\Plugin\Traits\RoboConfigTrait;
 
 /**
  * Robo commands related to continuous integration.

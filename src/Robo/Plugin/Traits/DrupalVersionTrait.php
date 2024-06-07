@@ -1,6 +1,6 @@
 <?php
 
-namespace Usher\Robo\Plugin\Traits;
+namespace Lucid\Robo\Plugin\Traits;
 
 /**
  * Trait to determine what version of Drupal is being run.

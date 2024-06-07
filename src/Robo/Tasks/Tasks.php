@@ -1,6 +1,8 @@
 <?php
 
-namespace Usher\Robo\Task\Discovery;
+namespace Lucid\Robo\Tasks;
+
+use Lucid\Robo\Tasks\Alternatives;
 
 trait Tasks
 {
@@ -8,7 +10,7 @@ trait Tasks
      * @param string $command
      * @param array $alternatives
      *
-     * @return \Usher\Robo\Task\Discovery\Alternatives|\Robo\Collection\CollectionBuilder
+     * @return \Lucid\Robo\Tasks\Alternatives|\Robo\Collection\CollectionBuilder
      */
     protected function taskAlternatives(string $command, array $alternatives)
     {

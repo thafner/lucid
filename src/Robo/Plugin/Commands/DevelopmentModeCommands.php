@@ -1,6 +1,6 @@
 <?php
 
-namespace Usher\Robo\Plugin\Commands;
+namespace Lucid\Robo\Plugin\Commands;
 
 use DrupalFinder\DrupalFinder;
 use Robo\Exception\TaskException;
@@ -8,11 +8,11 @@ use Robo\Result;
 use Robo\ResultData;
 use Robo\Tasks;
 use Symfony\Component\Yaml\Yaml;
-use Usher\Robo\Plugin\Enums\LocalDevEnvironmentTypes;
-use Usher\Robo\Plugin\Traits\DatabaseDownloadTrait;
-use Usher\Robo\Plugin\Traits\DrupalVersionTrait;
-use Usher\Robo\Plugin\Traits\SitesConfigTrait;
-use Usher\Robo\Task\Discovery\Alternatives;
+use Lucid\Robo\Plugin\Enums\LocalDevEnvironmentTypes;
+use Lucid\Robo\Plugin\Traits\DatabaseDownloadTrait;
+use Lucid\Robo\Plugin\Traits\DrupalVersionTrait;
+use Lucid\Robo\Plugin\Traits\SitesConfigTrait;
+use Lucid\Robo\Tasks\Alternatives;
 
 /**
  * Robo commands related to changing development modes.

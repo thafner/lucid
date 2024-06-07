@@ -1,13 +1,13 @@
 <?php
 
-namespace Usher\Robo\Plugin\Commands;
+namespace Lucid\Robo\Plugin\Commands;
 
 use Robo\Exception\TaskException;
 use Robo\Result;
 use Robo\Tasks;
 use Symfony\Component\Yaml\Yaml;
-use Usher\Robo\Plugin\Traits\RoboConfigTrait;
-use Usher\Robo\Plugin\Traits\SitesConfigTrait;
+use Lucid\Robo\Plugin\Traits\RoboConfigTrait;
+use Lucid\Robo\Plugin\Traits\SitesConfigTrait;
 
 /**
  * Robo commands related to modifying tooling config files.

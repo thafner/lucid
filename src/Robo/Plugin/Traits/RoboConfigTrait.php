@@ -1,10 +1,10 @@
 <?php
 
-namespace Usher\Robo\Plugin\Traits;
+namespace Lucid\Robo\Plugin\Traits;
 
 use Robo\Robo;
 use Robo\Exception\TaskException;
-use Usher\Robo\Plugin\Enums\ConfigTypes;
+use Lucid\Robo\Plugin\Enums\ConfigTypes;
 
 /**
  * Trait to provide access to Robo configuration.

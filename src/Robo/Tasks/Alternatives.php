@@ -1,6 +1,6 @@
 <?php
 
-namespace Usher\Robo\Task\Discovery;
+namespace Lucid\Robo\Tasks;
 
 use Robo\Task\BaseTask;
 use Robo\Result;
