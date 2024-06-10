@@ -246,7 +246,7 @@ class DrushTask extends CommandStack {
       $this->executable = str_replace(' ', '\\ ', $this->getConfig()->get('drush.bin'));
     }
     else {
-      $this->executable = 'drush';
+      $this->executable = 'vendor/bin/drush';
     }
 
     if (!isset($this->dir)) {
