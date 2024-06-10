@@ -3,7 +3,7 @@
 use Robo\Symfony\ConsoleIO;
 use Robo\Tasks;
 
-class RoboFile extends Tasks
+class RoboFile extends \Thafner\Lucid\Robo\LucidTasks
 {
   use \Robo\Common\TaskIO;
 
