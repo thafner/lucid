@@ -34,7 +34,7 @@ class DeployCommands extends Tasks
      *
      */
     public function build(
-        string $appDirPath,
+        string $appDirPath = 'app',
         string $siteName = 'default',
         string $docroot = 'web',
     ): Result {
