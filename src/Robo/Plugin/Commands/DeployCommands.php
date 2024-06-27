@@ -31,16 +31,12 @@ class DeployCommands extends Tasks
      *   The Drupal site shortname. Optional.
      * @param string $docroot
      *   The Drupal document root directory. Optional.
-     * @param array $options
-     *   The options.
      *
-     * @aliases deployd
      */
     public function build(
         string $appDirPath,
         string $siteName = 'default',
         string $docroot = 'web',
-        array $options = [],
     ): Result {
         $result = $this->taskExecStack()
             ->dir("$appDirPath/$docroot/sites/$siteName")
