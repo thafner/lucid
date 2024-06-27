@@ -39,7 +39,7 @@ class DeployCommands extends Tasks
         string $docroot = 'web',
     ): Result {
         $result = $this->taskExecStack()
-            ->dir("$appDirPath/$docroot/sites/$siteName")
+//            ->dir("$appDirPath/$docroot/sites/$siteName")
             ->exec("$appDirPath/vendor/bin/drush deploy --yes")
             // Import the latest configuration again. This includes the latest
             // configuration_split configuration. Importing this twice ensures
